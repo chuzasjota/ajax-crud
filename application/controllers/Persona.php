@@ -9,7 +9,17 @@ class Persona extends CI_Controller {
 
 	public function index(){
 		$data['persons']=$this->PersonModel->getPersons();
+		$data['genders']=$this->PersonModel->getGender();
+		$this->load->view('header');
 		$this->load->view('person', $data);
+		$this->load->view('footer');
+	}
+
+	public function form(){
+		$data['genders']=$this->PersonModel->getGender();
+		$this->load->view('header');
+		$this->load->view('form', $data);
+		$this->load->view('footer');
 	}
 
 	public function insert(){
@@ -18,8 +28,7 @@ class Persona extends CI_Controller {
 			'email' => $this->input->post('email'),
 			'phone' => $this->input->post('phone'),
 			'city' => $this->input->post('city'),
-			'gender' => $this->input->post('gender'),
-			'location' => $this->input->post('location')
+			'idGender' => $this->input->post('idGender')
 		);
 
 		$insert = $this->PersonModel->insertPerson($dataUser);
@@ -37,11 +46,12 @@ class Persona extends CI_Controller {
 			'email' => $this->input->post('email'),
 			'phone' => $this->input->post('phone'),
 			'city' => $this->input->post('city'),
-			'gender' => $this->input->post('gender'),
-			'location' => $this->input->post('location')
+			'idGender' => $this->input->post('idGender')
 		);
 
-		$update = $this->PersonModel->updatePerson($dataUser);
+		$id = $this->input->post('idPerson');
+
+		$update = $this->PersonModel->updatePerson($id, $dataUser);
 		print json_encode($update);
 	}
 
