@@ -60,31 +60,31 @@
           <div class="form-group">
             <label class="control-label col-md-3">Nombre</label>
             <div class="col-md-9">
-              <input name="name" placeholder="Nombre" id="nameE" class="form-control" type="text">
+              <input name="name" placeholder="Nombre" id="nameE" class="form-control" type="text" required>
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3">E-mail</label>
             <div class="col-md-9">
-              <input name="email" id="emailE" placeholder="E-mail" class="form-control" type="text">
+              <input name="email" id="emailE" placeholder="E-mail" class="form-control" type="email" required>
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3">Teléfono</label>
             <div class="col-md-9">
-              <input name="phone" id="phoneE" placeholder="Teléfono" class="form-control" type="text">
+              <input name="phone" id="phoneE" placeholder="Teléfono" class="form-control" type="number" required>
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3">Ciudad</label>
             <div class="col-md-9">
-              <input name="city" id="cityE" placeholder="Ciudad" class="form-control" type="text">
+              <input name="city" id="cityE" placeholder="Ciudad" class="form-control" type="text" required>
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3">Genero</label>
             <div class="col-md-9">
-              <select name="idGender" id="idGenderE" class="form-control">
+              <select name="idGender" id="idGenderE" class="form-control" required>
                 <?php foreach ($genders as $gender) { ?>
                     <option value="<?php echo $gender->idGender; ?>"><?php echo $gender->gender; ?></option>
                 <?php } ?>
